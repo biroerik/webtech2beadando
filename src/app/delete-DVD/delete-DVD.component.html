@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse justify-content-start">
+        <div class="navbar-nav">
+            <a routerLink="/DVD-list" class="nav-item nav-link">DVDs</a>
+            <a routerLink="/add-DVD" class="nav-item nav-link">Add DVD</a>
+            <a routerLink="/delete-DVD" routerLinkActive="active" class="nav-item nav-link">Delete DVD</a>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a routerLink="/login" class="nav-item nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br />
+
+<div class="table-responsive text-center container">
+    <form>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Director</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">*</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="DVDs.length == 0">
+                    <td colspan="8">No DVDs Available</td>
+                </tr>
+                <tr *ngFor="let DVD of DVDs; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ DVD.title }}</td>
+                    <td>{{ DVD.date }}</td>
+                    <td>{{ DVD.director }}</td>
+                    <td>{{ DVD.score }}</td>
+                    <td><button class=" btn btn-block btn-danger " (click)="deleteDVD(i) ">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+    <br/>
+</div>

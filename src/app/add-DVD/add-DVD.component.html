@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse justify-content-start">
+        <div class="navbar-nav">
+            <a routerLink="/DVD-list" class="nav-item nav-link">DVDs</a>
+            <a routerLink="/add-DVD" routerLinkActive="active" class="nav-item nav-link">Add DVD</a>
+            <a routerLink="/delete-DVD" class="nav-item nav-link">Delete DVD</a>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a routerLink="/login" class="nav-item nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br />
+
+<div class="container">
+    <form [formGroup]="addDVDForm">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" placeholder="Title of the movie" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <input type="text" class="form-control" placeholder="Creation date of the movie" formControlName="date">
+        </div>
+        <div class="form-group">
+            <label>Director</label>
+            <input type="text" class="form-control" placeholder="Who directed the movie" formControlName="director">
+        </div>
+        <div class="form-group">
+            <label>Score</label>
+            <input type="number" min="0" max="10" class="form-control" placeholder="Enter score(0-10)" formControlName="score">
+        </div>
+        <br />
+        <div class="col-md-2">
+            <button class="btn btn-success btn-block" (click)="addDVD()" [disabled]="addDVDForm.invalid">Add</button>
+        <br />
+        <button class="btn btn-danger btn-block" type="reset">Reset</button>
+        <br />
+        </div>
+        
+    </form>
+</div>
